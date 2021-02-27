@@ -1,40 +1,19 @@
-﻿using System;
+﻿using App.Domain;
+using App.Domain.Entity;
+using App.Domain.Factory;
+using App.Domain.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace App
+namespace App.Application.Service
 {
-    public interface ICustomerFactory
-    {
-        Customer Create(Company company, string firstname, string surname, DateTime dateOfBirth, string emailAddress);
-    }
 
-    public class CustomerFactory : ICustomerFactory
-    {
-        public Customer Create(Company company, string firstname, string surname, DateTime dateOfBirth, string emailAddress)
-        {
-            return new Customer(company, firstname, surname, dateOfBirth, emailAddress);
-        }
-    }
-
-    public interface ICompanyRepository
-    {
-        Company GetById(int id);
-    }
-
-    public interface ICustomerDataAccessWrapper 
-    {
-        void AddCustomer(Customer customer);
-    }
-
-    public class CustomerDataAccessWrapper : ICustomerDataAccessWrapper
-    {
-        public void AddCustomer(Customer customer)
-        {
-            CustomerDataAccess.AddCustomer(customer);
-        }
-    }
+    //public interface ICustomerDataAccessWrapper 
+    //{
+    //    void AddCustomer(Customer customer);
+    //}
 
     public class CustomerService
     {
@@ -65,7 +44,7 @@ namespace App
             {
                 customer = _customerFactory.Create(company, firname, surname, dateOfBirth, email);
             }
-            catch (ArgumentException e)
+            catch (ArgumentException)
             {
                 return false;
             }

@@ -43,23 +43,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classification.cs" />
-    <Compile Include="Company.cs" />
-    <Compile Include="CompanyRepository.cs" />
-    <Compile Include="Customer.cs" />
-    <Compile Include="CustomerCreditService.cs" />
-    <Compile Include="CustomerDataAccess.cs" />
-    <Compile Include="CustomerService.cs" />
+    <Compile Include="Domain\Classification.cs" />
+    <Compile Include="Domain\Entities\Company.cs" />
+    <Compile Include="Domain\Factories\CustomerFactory.cs" />
+    <Compile Include="Domain\Factories\ICustomerFactory.cs" />
+    <Compile Include="Domain\Repositories\CompanyRepository.cs" />
+    <Compile Include="Application\Services\CustomerCreditService.cs" />
+    <Compile Include="Domain\Repositories\CustomerDataAccess.cs" />
+    <Compile Include="Application\Services\CustomerService.cs" />
+    <Compile Include="Domain\Entities\Customer.cs" />
+    <Compile Include="Domain\CustomerDataAccessWrapper.cs" />
+    <Compile Include="Domain\Repositories\ICompanyRepository.cs" />
+    <Compile Include="Domain\ICustomerDataAccessWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="NewFile1.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Application\Service\" />
-    <Folder Include="Domain\Entity\" />
-    <Folder Include="Infrastructure\Repository\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

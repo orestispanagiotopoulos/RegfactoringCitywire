@@ -1,4 +1,4 @@
-namespace App
+namespace App.Domain.Entity
 {
     public class Company
     {

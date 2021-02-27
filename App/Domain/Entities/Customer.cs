@@ -1,6 +1,9 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-namespace App
+namespace App.Domain.Entity
 {
     public class Customer
     {
@@ -10,10 +13,10 @@ namespace App
         {
             ValidateCustomerCreation(firstname, surname, dateOfBirth, emailAddress);
 
-            Company      = company;
-            Firstname    = firstname;
-            Surname      = surname;
-            DateOfBirth  = dateOfBirth;
+            Company = company;
+            Firstname = firstname;
+            Surname = surname;
+            DateOfBirth = dateOfBirth;
             EmailAddress = emailAddress;
         }
 
@@ -33,7 +36,7 @@ namespace App
 
         public Company Company { get; set; }
 
-        public bool HasEnoughCredit() 
+        public bool HasEnoughCredit()
         {
             if (HasCreditLimit && CreditLimit < CreditLimitThreshold)
             {
@@ -66,7 +69,7 @@ namespace App
                 CreditLimit = 2 * creditLimit;
             }
             else
-            { 
+            {
                 HasCreditLimit = true;
                 CreditLimit = creditLimit;
             }

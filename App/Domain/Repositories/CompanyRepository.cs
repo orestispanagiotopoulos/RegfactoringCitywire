@@ -1,4 +1,7 @@
-﻿using System;
+﻿using App.Domain;
+using App.Domain.Entity;
+using App.Domain.Repository;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
