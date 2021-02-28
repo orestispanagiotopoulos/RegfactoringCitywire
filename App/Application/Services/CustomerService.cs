@@ -36,14 +36,14 @@ namespace App.Application.Service
             _customerDataAccessWrapper = customerDataAccessWrapper;
         }
 
-        public bool AddCustomer(string firname, string surname, string email, DateTime dateOfBirth, int companyId)
+        public bool AddCustomer(string firstname, string surname, string email, DateTime dateOfBirth, int companyId)
         {
             var company = _companyRepository.GetById(companyId);
 
             Customer customer;
             try
             {
-                customer = _customerFactory.Create(company, firname, surname, dateOfBirth, email);
+                customer = _customerFactory.Create(company, firstname, surname, dateOfBirth, email);
             }
             catch (Exception ex)
             {
@@ -54,7 +54,7 @@ namespace App.Application.Service
                 throw;
             }
 
-            int? creditLimit = null;
+            int creditLimit = 0;
 
             if (customer.ShouldPerformCreditCheck())
             {

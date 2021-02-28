@@ -1,9 +1,6 @@
 ﻿using App.Domain.Exceptions;
 using App.Helper;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace App.Domain.Entity
 {
@@ -32,21 +29,11 @@ namespace App.Domain.Entity
 
         public string EmailAddress { get; set; }
 
-        public bool HasCreditLimit { get; set; }
+        public bool HasCreditLimit { get; set; } = true;
 
-        public int? CreditLimit { get; set; }
+        public int CreditLimit { get; set; }
 
         public Company Company { get; set; }
-
-        public bool HasEnoughCredit()
-        {
-            if (HasCreditLimit && CreditLimit < CreditLimitThreshold)
-            {
-                return false;
-            }
-
-            return true;
-        }
 
         public bool ShouldPerformCreditCheck()
         {
@@ -57,8 +44,17 @@ namespace App.Domain.Entity
 
             return false;
         }
+        public bool HasEnoughCredit()
+        {
+            if (HasCreditLimit && CreditLimit < CreditLimitThreshold)
+            {
+                return false;
+            }
 
-        public void ApplyCreditLimit(int? creditLimit)
+            return true;
+        }
+
+        public void ApplyCreditLimit(int creditLimit)
         {
             if (!ShouldPerformCreditCheck())
             {
