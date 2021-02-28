@@ -1,4 +1,6 @@
-﻿using System;
+﻿using App.Domain.Exceptions;
+using App.Helper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -86,7 +88,7 @@ namespace App.Domain.Entity
         {
             if (string.IsNullOrEmpty(firstname) || string.IsNullOrEmpty(surname))
             {
-                throw new ArgumentException("");
+                throw new GuardAgainstEmptyNamesException($"{firstname} {surname}");
             }
         }
 
@@ -94,19 +96,19 @@ namespace App.Domain.Entity
         {
             if (!emailAddress.Contains("@") && !emailAddress.Contains("."))
             {
-                throw new ArgumentException("");
+                throw new GuardAgainstInvalidEmailException(emailAddress);
             }
         }
 
         private void GuardAgainstInvalidDateOfBirth(DateTime dateOfBirth)
         {
-            var now = DateTime.Now;
+            var now = DateTimeWrapper.Now;
             int age = now.Year - dateOfBirth.Year;
             if (now.Month < dateOfBirth.Month || (now.Month == dateOfBirth.Month && now.Day < dateOfBirth.Day)) age--;
 
             if (age < 21)
             {
-                throw new ArgumentException("");
+                throw new GuardAgainstInvalidDateOfBirthException(dateOfBirth.ToString());
             }
         }
     }

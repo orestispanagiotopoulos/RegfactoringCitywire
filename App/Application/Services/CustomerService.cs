@@ -1,5 +1,6 @@
 ﻿using App.Domain;
 using App.Domain.Entity;
+using App.Domain.Exceptions;
 using App.Domain.Factory;
 using App.Domain.Repository;
 using System;
@@ -44,9 +45,13 @@ namespace App.Application.Service
             {
                 customer = _customerFactory.Create(company, firname, surname, dateOfBirth, email);
             }
-            catch (ArgumentException)
+            catch (Exception ex)
             {
-                return false;
+                if (ex is GuardAgainstEmptyNamesException || ex is GuardAgainstInvalidDateOfBirthException || ex is GuardAgainstInvalidEmailException)
+                {
+                    return false;
+                }
+                throw;
             }
 
             int? creditLimit = null;

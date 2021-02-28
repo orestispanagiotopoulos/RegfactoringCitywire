@@ -45,6 +45,9 @@
   <ItemGroup>
     <Compile Include="Domain\Classification.cs" />
     <Compile Include="Domain\Entities\Company.cs" />
+    <Compile Include="Domain\Exceptions\GuardAgainstEmptyNamesException.cs" />
+    <Compile Include="Domain\Exceptions\GuardAgainstInvalidDateOfBirthException.cs" />
+    <Compile Include="Domain\Exceptions\GuardAgainstInvalidEmailException.cs" />
     <Compile Include="Domain\Factories\CustomerFactory.cs" />
     <Compile Include="Domain\Factories\ICustomerFactory.cs" />
     <Compile Include="Domain\Repositories\CompanyRepository.cs" />
@@ -55,6 +58,8 @@
     <Compile Include="Domain\CustomerDataAccessWrapper.cs" />
     <Compile Include="Domain\Repositories\ICompanyRepository.cs" />
     <Compile Include="Domain\ICustomerDataAccessWrapper.cs" />
+    <Compile Include="Helper\DateTimeContext.cs" />
+    <Compile Include="Helper\DateTimeWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
