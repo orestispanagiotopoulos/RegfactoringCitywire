@@ -5,20 +5,20 @@ using System.Text;
 
 namespace App.Domain.Exceptions
 {
-    public class GuardAgainstEmptyNamesException : Exception
+    public class EmptyNamesException : Exception
     {
         private const string message = "Invalid Name: {0}";
 
-        public GuardAgainstEmptyNamesException()
+        public EmptyNamesException()
         {
         }
 
-        public GuardAgainstEmptyNamesException(string name)
+        public EmptyNamesException(string name)
             : base(String.Format(message, name))
         {
         }
 
-        public GuardAgainstEmptyNamesException(string name, Exception inner)
+        public EmptyNamesException(string name, Exception inner)
              : base(String.Format(message, name), inner)
         {
         }

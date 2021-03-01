@@ -84,7 +84,7 @@ namespace App.Domain.Entity
         {
             if (string.IsNullOrEmpty(firstname) || string.IsNullOrEmpty(surname))
             {
-                throw new GuardAgainstEmptyNamesException($"{firstname} {surname}");
+                throw new EmptyNamesException($"{firstname} {surname}");
             }
         }
 
@@ -92,7 +92,7 @@ namespace App.Domain.Entity
         {
             if (!emailAddress.Contains("@") && !emailAddress.Contains("."))
             {
-                throw new GuardAgainstInvalidEmailException(emailAddress);
+                throw new InvalidEmailException(emailAddress);
             }
         }
 
@@ -104,7 +104,7 @@ namespace App.Domain.Entity
 
             if (age < 21)
             {
-                throw new GuardAgainstInvalidDateOfBirthException(dateOfBirth.ToString());
+                throw new InvalidDateOfBirthException(dateOfBirth.ToString());
             }
         }
     }

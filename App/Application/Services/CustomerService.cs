@@ -4,30 +4,21 @@ using App.Domain.Exceptions;
 using App.Domain.Factory;
 using App.Domain.Repository;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace App.Application.Service
 {
-
-    //public interface ICustomerDataAccessWrapper 
-    //{
-    //    void AddCustomer(Customer customer);
-    //}
-
     public class CustomerService
     {
-        private ICustomerFactory _customerFactory { get; set; }
-        private ICompanyRepository _companyRepository { get; set; }
-        private ICustomerCreditService _customerCreditServiceClient { get; set; }
-        private CustomerDataAccessWrapper _customerDataAccessWrapper { get; set; }
+        private ICustomerFactory _customerFactory;
+        private ICompanyRepository _companyRepository;
+        private ICustomerCreditService _customerCreditServiceClient;
+        private ICustomerDataAccessWrapper _customerDataAccessWrapper;
 
         public CustomerService(
             ICustomerFactory customerFactory,
             ICompanyRepository companyRepository,
             ICustomerCreditService customerCreditServiceClient,
-            CustomerDataAccessWrapper customerDataAccessWrapper
+            ICustomerDataAccessWrapper customerDataAccessWrapper
         )
         {
             _customerFactory = customerFactory;
@@ -47,7 +38,7 @@ namespace App.Application.Service
             }
             catch (Exception ex)
             {
-                if (ex is GuardAgainstEmptyNamesException || ex is GuardAgainstInvalidDateOfBirthException || ex is GuardAgainstInvalidEmailException)
+                if (ex is EmptyNamesException || ex is InvalidDateOfBirthException || ex is InvalidEmailException)
                 {
                     return false;
                 }

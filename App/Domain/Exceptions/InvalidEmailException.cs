@@ -5,20 +5,20 @@ using System.Text;
 
 namespace App.Domain.Exceptions
 {
-    public class GuardAgainstInvalidEmailException : Exception
+    public class InvalidEmailException : Exception
     {
         private const string message = "Invalid emailAddress: {0}";
 
-        public GuardAgainstInvalidEmailException()
+        public InvalidEmailException()
         {
         }
 
-        public GuardAgainstInvalidEmailException(string emailAddress)
+        public InvalidEmailException(string emailAddress)
             : base(String.Format(message, emailAddress))
         {
         }
 
-        public GuardAgainstInvalidEmailException(string emailAddress, Exception inner)
+        public InvalidEmailException(string emailAddress, Exception inner)
              : base(String.Format(message, emailAddress), inner)
         {
         }

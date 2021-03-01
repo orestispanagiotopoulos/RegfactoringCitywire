@@ -25,7 +25,7 @@ namespace App.Test.Domain.Entities
             // Act - Assert
             using (new DateTimeContext(fakeDateNow))
             {
-                var ex = Assert.Throws<GuardAgainstInvalidDateOfBirthException>(
+                var ex = Assert.Throws<InvalidDateOfBirthException>(
                     () => new Customer(new Company(), "Robbert", "Fisher", invalidDateOfBirth, "R.Fisher@gmail.com"));
             }
         }
@@ -55,7 +55,7 @@ namespace App.Test.Domain.Entities
             var firstName = string.Empty;
 
             // Act - Assert
-            var ex = Assert.Throws<GuardAgainstEmptyNamesException>(
+            var ex = Assert.Throws<EmptyNamesException>(
                 () => new Customer(new Company(), firstName, "Fisher", new DateTime(1995, 01, 01), "R.Fisher@gmail.com"));
         }
 
@@ -66,7 +66,7 @@ namespace App.Test.Domain.Entities
             string firstName = null;
 
             // Act - Assert
-            var ex = Assert.Throws<GuardAgainstEmptyNamesException>(
+            var ex = Assert.Throws<EmptyNamesException>(
                 () => new Customer(new Company(), firstName, "Fisher", new DateTime(1995, 01, 01), "R.Fisher@gmail.com"));
         }
 
@@ -77,7 +77,7 @@ namespace App.Test.Domain.Entities
             string email = "R,Fisher,gmail,com";
 
             // Act - Assert
-            var ex = Assert.Throws<GuardAgainstInvalidEmailException>(
+            var ex = Assert.Throws<InvalidEmailException>(
                 () => new Customer(new Company(), "Robbert", "Fisher", new DateTime(1995, 01, 01), email));
         }
 
