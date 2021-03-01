@@ -1,4 +1,6 @@
-namespace App.Domain.Entity
+using App.Enum;
+
+namespace App.Model.Entities
 {
     public class Company
     {

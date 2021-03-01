@@ -1,13 +1,9 @@
-﻿using App.Domain.Entity;
-using System;
-using System.Collections.Generic;
+﻿using App.Model.Entities;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
 
-namespace App
+namespace App.Repositories
 {
     public static class CustomerDataAccess
     {

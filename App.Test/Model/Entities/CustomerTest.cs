@@ -1,12 +1,10 @@
-﻿using App.Domain.Entity;
-using App.Domain.Exceptions;
+﻿using App.Exceptions;
 using App.Helper;
+using App.Model.Entities;
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace App.Test.Domain.Entities
+namespace App.Test.Model.Entities
 {
     class CustomerTest
     {
@@ -132,11 +130,8 @@ namespace App.Test.Domain.Entities
         public void HasEnoughCredit_WhenHasCreditLimitSmallerThanThreshold_ThenReturnFalse()
         {
             // Arrange
-            var customer = new Customer(new Company(), "Robbert", "Fisher", new DateTime(1995, 01, 01), "R.Fisher@gmail.com") 
-            {
-                HasCreditLimit = true, 
-                CreditLimit = 450
-            };
+            var customer = new Customer(new Company(), "Robbert", "Fisher", new DateTime(1995, 01, 01), "R.Fisher@gmail.com");
+            customer.ApplyCreditLimit(450);
 
             // Act 
             var result = customer.HasEnoughCredit();
@@ -149,11 +144,8 @@ namespace App.Test.Domain.Entities
         public void HasEnoughCredit_WhenHasCreditLimitGreaterThanThreshold_ThenReturnTrue()
         {
             // Arrange
-            var customer = new Customer(new Company(), "Robbert", "Fisher", new DateTime(1995, 01, 01), "R.Fisher@gmail.com")
-            {
-                HasCreditLimit = true,
-                CreditLimit = 550
-            };
+            var customer = new Customer(new Company(), "Robbert", "Fisher", new DateTime(1995, 01, 01), "R.Fisher@gmail.com");
+            customer.ApplyCreditLimit(550);
 
             // Act 
             var result = customer.HasEnoughCredit();
@@ -166,10 +158,8 @@ namespace App.Test.Domain.Entities
         public void HasEnoughCredit_WhenFlagHasCreditLimitIsFalse_ThenReturnTrue()
         {
             // Arrange
-            var customer = new Customer(new Company(), "Robbert", "Fisher", new DateTime(1995, 01, 01), "R.Fisher@gmail.com")
-            {
-                HasCreditLimit = false
-            };
+            var customer = new Customer(new Company { Name = Company.VeryImportantClient }, "Robbert", "Fisher", new DateTime(1995, 01, 01), "R.Fisher@gmail.com");
+            customer.ApplyCreditLimit(0);
 
             // Act 
             var result = customer.HasEnoughCredit();

@@ -1,14 +1,13 @@
-﻿using App.Application.Service;
-using App.Domain;
-using App.Domain.Entity;
-using App.Domain.Factory;
-using App.Domain.Repository;
+﻿using App.Factories;
 using App.Helper;
+using App.Model.Entities;
+using App.Repositories;
+using App.Services;
 using Moq;
 using NUnit.Framework;
 using System;
 
-namespace App.Test.Application.Services
+namespace App.Test.Services
 {
     public class CustomerServiceTest
     {
@@ -94,7 +93,7 @@ namespace App.Test.Application.Services
             // Assert
             Assert.AreEqual(true, shouldAddClient);
             Assert.AreEqual(false, customer.HasCreditLimit);
-            Assert.AreEqual(0, customer.CreditLimit); // Default value as the customer doesn't have credit limit.
+            Assert.IsNull(customer.CreditLimit); // Default value as the customer doesn't have credit limit.
             CustomerDataAccessWrapper.Verify(x => x.AddCustomer(It.IsAny<Customer>()), Times.Once);
         }
 

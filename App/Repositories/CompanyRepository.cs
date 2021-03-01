@@ -1,15 +1,10 @@
-﻿using App.Domain;
-using App.Domain.Entity;
-using App.Domain.Repository;
-using System;
-using System.Collections.Generic;
+﻿using App.Enum;
+using App.Model.Entities;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
 
-namespace App
+namespace App.Repositories
 {
     public class CompanyRepository : ICompanyRepository
     {

@@ -1,11 +1,10 @@
-﻿using App.Domain;
-using App.Domain.Entity;
-using App.Domain.Exceptions;
-using App.Domain.Factory;
-using App.Domain.Repository;
+﻿using App.Exceptions;
+using App.Factories;
+using App.Model.Entities;
+using App.Repositories;
 using System;
 
-namespace App.Application.Service
+namespace App.Services
 {
     public class CustomerService
     {
@@ -45,7 +44,7 @@ namespace App.Application.Service
                 throw;
             }
 
-            int creditLimit = 0;
+            int? creditLimit = null;
 
             if (customer.ShouldPerformCreditCheck())
             {

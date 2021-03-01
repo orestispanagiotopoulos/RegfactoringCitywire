@@ -1,10 +1,7 @@
-﻿using App.Domain.Entity;
+﻿using App.Model.Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace App.Domain.Factory
+namespace App.Factories
 {
     public interface ICustomerFactory
     {

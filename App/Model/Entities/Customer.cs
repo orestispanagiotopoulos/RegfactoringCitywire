@@ -1,8 +1,8 @@
-﻿using App.Domain.Exceptions;
+﻿using App.Exceptions;
 using App.Helper;
 using System;
 
-namespace App.Domain.Entity
+namespace App.Model.Entities
 {
     public class Customer
     {
@@ -19,21 +19,21 @@ namespace App.Domain.Entity
             EmailAddress = emailAddress;
         }
 
-        public int Id { get; set; }
+        public int Id { get; private set; }
 
-        public string Firstname { get; set; }
+        public string Firstname { get; private set; }
 
-        public string Surname { get; set; }
+        public string Surname { get; private set; }
 
-        public DateTime DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; private set; }
 
-        public string EmailAddress { get; set; }
+        public string EmailAddress { get; private set; }
 
-        public bool HasCreditLimit { get; set; } = true;
+        public bool? HasCreditLimit { get; private set; }
 
-        public int CreditLimit { get; set; }
+        public int? CreditLimit { get; private set; }
 
-        public Company Company { get; set; }
+        public Company Company { get; private set; }
 
         public bool ShouldPerformCreditCheck()
         {
@@ -46,7 +46,7 @@ namespace App.Domain.Entity
         }
         public bool HasEnoughCredit()
         {
-            if (HasCreditLimit && CreditLimit < CreditLimitThreshold)
+            if (HasCreditLimit.Value && CreditLimit < CreditLimitThreshold)
             {
                 return false;
             }
@@ -54,12 +54,11 @@ namespace App.Domain.Entity
             return true;
         }
 
-        public void ApplyCreditLimit(int creditLimit)
+        public void ApplyCreditLimit(int? creditLimit)
         {
             if (!ShouldPerformCreditCheck())
             {
                 HasCreditLimit = false;
-                CreditLimit = creditLimit;
             }
             else if (Company.Name == Company.ImportantClient)
             {

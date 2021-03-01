@@ -1,10 +1,7 @@
-﻿using App.Domain.Entity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using App.Model.Entities;
+using App.Repositories;
 
-namespace App.Domain
+namespace App.Factories
 {
     public class CustomerDataAccessWrapper : ICustomerDataAccessWrapper
     {

@@ -43,21 +43,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\Classification.cs" />
-    <Compile Include="Domain\Entities\Company.cs" />
-    <Compile Include="Domain\Exceptions\EmptyNamesException.cs" />
-    <Compile Include="Domain\Exceptions\InvalidDateOfBirthException.cs" />
-    <Compile Include="Domain\Exceptions\InvalidEmailException.cs" />
-    <Compile Include="Domain\Factories\CustomerFactory.cs" />
-    <Compile Include="Domain\Factories\ICustomerFactory.cs" />
-    <Compile Include="Domain\Repositories\CompanyRepository.cs" />
-    <Compile Include="Application\Services\CustomerCreditService.cs" />
-    <Compile Include="Domain\Repositories\CustomerDataAccess.cs" />
-    <Compile Include="Application\Services\CustomerService.cs" />
-    <Compile Include="Domain\Entities\Customer.cs" />
-    <Compile Include="Domain\CustomerDataAccessWrapper.cs" />
-    <Compile Include="Domain\Repositories\ICompanyRepository.cs" />
-    <Compile Include="Domain\ICustomerDataAccessWrapper.cs" />
+    <Compile Include="Enum\Classification.cs" />
+    <Compile Include="Model\Entities\Company.cs" />
+    <Compile Include="Exceptions\EmptyNamesException.cs" />
+    <Compile Include="Exceptions\InvalidDateOfBirthException.cs" />
+    <Compile Include="Exceptions\InvalidEmailException.cs" />
+    <Compile Include="Factories\CustomerFactory.cs" />
+    <Compile Include="Factories\ICustomerFactory.cs" />
+    <Compile Include="Repositories\CompanyRepository.cs" />
+    <Compile Include="Services\CustomerCreditService.cs" />
+    <Compile Include="Repositories\CustomerDataAccess.cs" />
+    <Compile Include="Services\CustomerService.cs" />
+    <Compile Include="Model\Entities\Customer.cs" />
+    <Compile Include="Factories\CustomerDataAccessWrapper.cs" />
+    <Compile Include="Repositories\ICompanyRepository.cs" />
+    <Compile Include="Repositories\ICustomerDataAccessWrapper.cs" />
     <Compile Include="Helper\DateTimeContext.cs" />
     <Compile Include="Helper\DateTimeWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
