@@ -11,3 +11,5 @@ to validate the input parameters.
 Because of the time restrictions I have refactored and tested mainly the classes CustomerService and 
 Customer.  Next step would be to refactor the repositories.
 
+I have used visual studio 2019. All the tests are passing.
+
